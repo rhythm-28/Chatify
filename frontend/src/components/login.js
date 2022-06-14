@@ -18,12 +18,13 @@ const Login = () => {
   const [password, setPassword] = useState();
 
   const [show, setShow] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   function handleShow() {
     setShow(!show);
   }
 
   async function submitHandler() {
+    setLoading(true);
     if (!email || !password) {
       toast({
         title: "Please Fill all the Fields",
@@ -32,6 +33,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      setLoading(false);
       return;
     }
     try {
@@ -54,7 +56,7 @@ const Login = () => {
         position: "bottom",
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
-      // history.push("/chats");
+      setLoading(false);
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -64,7 +66,9 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-    }}
+      setLoading(false);
+    }
+  }
 
   function loginAsGuest() {
     setEmail("abc123@gmail.com");
@@ -102,6 +106,7 @@ const Login = () => {
           width="100%"
           style={{ marginTop: 15 }}
           onClick={submitHandler}
+          isLoading={loading}
         >
           {" "}
           Login
