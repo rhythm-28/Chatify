@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const connectToDB = require("./config/db");
 const chats = require("./data/data.js");
 const userRoutes = require("./routes/userRoutes");
+const chatRoutes = require("./routes/chatRoutes");
+
 const {notFound,errorHandler} = require("./middlewares/middlewares.js")
 const app = express();
 doetenv.config();
@@ -13,19 +15,20 @@ connectToDB();
 app.use(bodyParser.json());
 
 app.use("/api/user", userRoutes);
-app.get("/", (req, res) => {
-  res.send("Home page of back-end server is working fine");
-});
+app.use("/api/chat",chatRoutes);
+// app.get("/", (req, res) => {
+//   res.send("Home page of back-end server is working fine");
+// });
 
-app.get("/api/chat", (req, res) => {
-  res.send(chats);
-});
+// app.get("/api/chat", (req, res) => {
+//   res.send(chats);
+// });
 
-app.get("/api/chat/:id", (req, res) => {
-  const desiredChatId = req.params.id;
-  const desiredChat = chats.find((chat) => chat._id == desiredChatId);
-  res.send(desiredChat);
-});
+// app.get("/api/chat/:id", (req, res) => {
+//   const desiredChatId = req.params.id;
+//   const desiredChat = chats.find((chat) => chat._id == desiredChatId);
+//   res.send(desiredChat);
+// });
 
 app.use(notFound);
 app.use(errorHandler);

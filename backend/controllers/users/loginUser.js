@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/user.js");
-const generateToken = require("../config/token");
+const User = require("../../models/user.js");
+const generateToken = require("../../config/token");
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -12,6 +12,8 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("Enter all required fields");
   }
   const user = await User.findOne({ email });
+
+  // first checks if user exists and then checks if password matches
   if (user && (await user.matchPassword(password))) {
     res.status(201).json({
       _id: user._id,
