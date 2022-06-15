@@ -20,6 +20,7 @@ const allUser = asyncHandler(async (req, res) => {
       }
     : {};
 
+    // find user in database except the logged in user
   const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
   res.send(users);
 });

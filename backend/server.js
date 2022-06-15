@@ -2,7 +2,7 @@ const express = require("express");
 const doetenv = require("dotenv");
 const bodyParser = require("body-parser");
 const connectToDB = require("./config/db");
-const chats = require("./data/data.js");
+//const chats = require("./data/data.js");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 
