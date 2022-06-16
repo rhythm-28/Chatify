@@ -6,8 +6,8 @@ const loginUser = require("../controllers/users/loginUser");
 const protect = require("../middlewares/authMiddleware");
 const allUser = require("../controllers/users/allUser");
 
+router.route("/").get(protect, allUser);
 router.route("/signup").post(registerUser);
 router.route("/login").post(loginUser);
-router.route("/").get(protect, allUser);
 
 module.exports = router;

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
-
+import { useHistory } from "react-router";
 const Signup = () => {
   const toast = useToast();
   const [name, setName] = useState();
@@ -20,7 +20,7 @@ const Signup = () => {
   const [pic, setPic] = useState();
   const [picLoading, setPicLoading] = useState(false);
   const [show, setShow] = useState(false);
-
+  const history = useHistory();
   function handleShow() {
     setShow(!show);
   }
@@ -105,6 +105,7 @@ const Signup = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setPicLoading(false);
+      history.push("/chats");
     } catch (error) {
       toast({
         title: "Error Occured!",

@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useEffect} from "react";
 import {
   Container,
   Box,
@@ -11,7 +11,26 @@ import {
 } from "@chakra-ui/react";
 import Login from "./login";
 import Signup from "./signup";
-const home = () => {
+import { useHistory } from "react-router";
+
+const Home = () => {
+
+   const history = useHistory();
+
+   //useEffect(() => {
+
+    // local storage stores data in string
+    // so we have to parse it
+     const user = JSON.parse(localStorage.getItem("userInfo"));
+
+     // checks if user is logged in
+     //if (user) {
+       // if logged in, then store his history of visited pages
+       //history.push("/chats");
+     //}
+   //}, [history]);
+
+
   return (
     <Container maxW="xl" centerContent>
       <Box
@@ -48,4 +67,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

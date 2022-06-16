@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+// to make sure only logged in users can access these routes
 const protect = require("../middlewares/authMiddleware");
+
 const accessChat = require("../controllers/chats/accessChat");
 const allChats = require("../controllers/chats/allChats");
 const createGroup = require("../controllers/chats/createGroup");
