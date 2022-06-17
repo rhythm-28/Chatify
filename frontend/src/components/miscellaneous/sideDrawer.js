@@ -104,7 +104,11 @@ function SideDrawer() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/chat/accessChat`, { userId }, config);
+      const { data } = await axios.get(
+        `/api/chat/accessChat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -125,7 +129,7 @@ function SideDrawer() {
   return (
     <>
       <Box
-        d="flex"
+        display="flex"
         justifyContent="space-between"
         alignItems="center"
         bg="white"
@@ -141,8 +145,9 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
+
         <Text fontSize="2xl" fontFamily="Work sans">
-          Talk-A-Tive
+          Chatify
         </Text>
         <div>
           <Menu>
@@ -153,7 +158,7 @@ function SideDrawer() {
               /> */}
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
-            <MenuList pl={2}>
+            {/* <MenuList pl={2}>
               {!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
@@ -163,12 +168,12 @@ function SideDrawer() {
                     setNotification(notification.filter((n) => n !== notif));
                   }}
                 >
-                  {/* {notif.chat.isGroupChat
+                  {notif.chat.isGroupChat
                     ? `New Message in ${notif.chat.chatName}`
-                    : `New Message from ${getSender(user, notif.chat.users)}`} */}
+                    : `New Message from ${getSender(user, notif.chat.users)}`}
                 </MenuItem>
               ))}
-            </MenuList>
+            </MenuList> */}
           </Menu>
           <Menu>
             <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>
