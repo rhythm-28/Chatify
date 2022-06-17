@@ -5,6 +5,7 @@ const connectToDB = require("./config/db");
 //const chats = require("./data/data.js");
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 
 const {notFound,errorHandler} = require("./middlewares/middlewares.js")
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat",chatRoutes);
+app.use("/api/message", messageRoutes);
 // app.get("/", (req, res) => {
 //   res.send("Home page of back-end server is working fine");
 // });
