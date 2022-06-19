@@ -13,7 +13,7 @@ const removeFromGroup = require("../controllers/chats/removeFromGroup");
 
 // access the chat with given user
 // if chat doesn't exist, create it
-router.route("/accessChat").get(protect,accessChat);
+router.route("/accessChat").post(protect,accessChat);
 
 // returns all those chats where logged in user is present
 router.route("/allChats").get(protect,allChats);
