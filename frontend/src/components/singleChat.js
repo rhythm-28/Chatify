@@ -16,7 +16,7 @@ import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/updateGroupChatModal";
 import { ChatState } from "../context/ChatProvider";
 
-const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "https://rhythm-chatify.herokuapp.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
