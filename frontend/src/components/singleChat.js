@@ -222,7 +222,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-              <div className="messages" style={{ overflow: "scroll",display: "flex", flexDirection: "column-reverse"}}>
+              <div
+                className="messages"
+                style={{
+                  overflow: "scroll",
+                  display: "flex",
+                  flexDirection: "column-reverse",
+                }}
+              >
                 <ScrollableChat messages={messages} />
               </div>
             )}
@@ -251,6 +258,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 value={newMessage}
                 onChange={typingHandler}
               />
+              <button onclick={sendMessage}>Send</button>
             </FormControl>
           </Box>
         </>

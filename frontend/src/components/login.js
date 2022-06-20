@@ -93,7 +93,7 @@ const Login = () => {
           <InputGroup>
             <Input
               type={show ? "text" : "password"}
-              placeholder="Set password"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -120,7 +120,7 @@ const Login = () => {
           width="100%"
           onClick={loginAsGuest}
         >
-          Login as Guest
+          Get Guest Login Credentials
         </Button>
       </VStack>
     </div>
