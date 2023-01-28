@@ -54,6 +54,7 @@ const io = require("socket.io")(server, {
 });
 
 io.on("connection", (socket) => {
+  console.log("chal rha mast");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
     socket.emit("connected");
