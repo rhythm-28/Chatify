@@ -1,3 +1,3 @@
 # Chatify
 
-Live project : https://rhythm-chatify.herokuapp.com/
+Live project : https://chatify-3zsd.onrender.com/
